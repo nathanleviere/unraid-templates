@@ -1,1 +1,49 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>QuietHarvest</Name>
+  <Repository>ghcr.io/nathanleviere/quiet-harvest:latest</Repository>
+  <Registry>https://ghcr.io/nathanleviere/quiet-harvest</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://gitlab.leviere.org/nathanleviere/quiet-harvest/-/issues</Support>
+  <Project>https://gitlab.leviere.org/nathanleviere/quiet-harvest</Project>
+  <Overview>
+    QuietHarvest is a self-hosted, human-paced content harvester (RSS to start).
+    It collects one item per cadence tick rather than hammering a source.
 
+    This template runs the app only. QuietHarvest needs a PostgreSQL database:
+    install a PostgreSQL container from Community Applications (or use an
+    existing one), create a database/user, and fill in the Postgres* fields
+    below. The app resolves aria2/ffmpeg/yt-dlp internally and runs as
+    PUID:PGID so files in your Downloads share are owned correctly.
+
+    See docs/deployment.md in the project for the full guide.
+  </Overview>
+  <Category>MediaApp:Other Downloaders:Other</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/nathanleviere/unraid-templates/main/quiet-harvest/quiet-harvest.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>
+    Self-hosted, human-paced content harvester. App-only template — bring your
+    own PostgreSQL (install one from Community Applications and point the
+    Postgres* fields at it).
+  </Description>
+  <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Web UI / API port" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Downloads" Target="/downloads" Default="/mnt/user/media/quietharvest" Mode="rw" Description="Where collected files are saved. Point new plots at /downloads." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/quietharvest" Mode="rw" Description="Cursors and aria2 resume sessions (small, persistent)." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID owning files on your shares (Unraid default 99)." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID owning files on your shares (Unraid default 100)." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="Default download path" Target="DEFAULT_DOWNLOAD_PATH" Default="/downloads" Mode="" Description="Pre-fills the New Plot download path." Type="Variable" Display="advanced" Required="false" Mask="false">/downloads</Config>
+  <Config Name="Postgres Host" Target="POSTGRES_HOST" Default="" Mode="" Description="Hostname or IP of your PostgreSQL container." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Postgres Port" Target="POSTGRES_PORT" Default="5432" Mode="" Description="PostgreSQL port." Type="Variable" Display="advanced" Required="true" Mask="false">5432</Config>
+  <Config Name="Postgres User" Target="POSTGRES_USER" Default="app" Mode="" Description="PostgreSQL user." Type="Variable" Display="always" Required="true" Mask="false">app</Config>
+  <Config Name="Postgres Password" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="PostgreSQL password." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="quiet_harvest" Mode="" Description="PostgreSQL database name." Type="Variable" Display="always" Required="true" Mask="false">quiet_harvest</Config>
+</Container>
