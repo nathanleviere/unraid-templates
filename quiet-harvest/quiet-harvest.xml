@@ -36,14 +36,14 @@
     Postgres* fields at it).
   </Description>
   <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Web UI / API port" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
-  <Config Name="Downloads" Target="/downloads" Default="/mnt/user/media/quietharvest" Mode="rw" Description="Where collected files are saved. Point new plots at /downloads." Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/quietharvest" Mode="rw" Description="Cursors and aria2 resume sessions (small, persistent)." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Where collected files are saved. Point new plots at /downloads." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/quiet-harvest" Mode="rw" Description="Cursors and aria2 resume sessions (small, persistent)." Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID owning files on your shares (Unraid default 99)." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID owning files on your shares (Unraid default 100)." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
   <Config Name="Default download path" Target="DEFAULT_DOWNLOAD_PATH" Default="/downloads" Mode="" Description="Pre-fills the New Plot download path." Type="Variable" Display="advanced" Required="false" Mask="false">/downloads</Config>
   <Config Name="Postgres Host" Target="POSTGRES_HOST" Default="" Mode="" Description="Hostname or IP of your PostgreSQL container." Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Postgres Port" Target="POSTGRES_PORT" Default="5432" Mode="" Description="PostgreSQL port." Type="Variable" Display="advanced" Required="true" Mask="false">5432</Config>
-  <Config Name="Postgres User" Target="POSTGRES_USER" Default="app" Mode="" Description="PostgreSQL user." Type="Variable" Display="always" Required="true" Mask="false">app</Config>
+  <Config Name="Postgres User" Target="POSTGRES_USER" Default="quietharvest" Mode="" Description="PostgreSQL user." Type="Variable" Display="always" Required="true" Mask="false">app</Config>
   <Config Name="Postgres Password" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="PostgreSQL password." Type="Variable" Display="always" Required="true" Mask="true"></Config>
-  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="quiet_harvest" Mode="" Description="PostgreSQL database name." Type="Variable" Display="always" Required="true" Mask="false">quiet_harvest</Config>
+  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="quietharvest" Mode="" Description="PostgreSQL database name." Type="Variable" Display="always" Required="true" Mask="false">quiet_harvest</Config>
 </Container>
